@@ -199,7 +199,7 @@ app.vars = {}
 
 @app.route('/')
 def index():
-  return render_template('index_reddit.html')
+  return render_template('index.html')
 
 
 @app.route('/plotpage', methods=['POST'])
