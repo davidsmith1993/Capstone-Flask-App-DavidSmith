@@ -202,6 +202,27 @@ def index():
   return render_template('index.html')
 
 
+@app.route('/resume')
+def resume():
+  return render_template('resume.html')
+
+
+@app.route('/ex_analysis1')
+def ex_analysis1():
+  return render_template('ex_analysis1.html')
+
+
+@app.route('/ex_analysis2')
+def ex_analysis2():
+  return render_template('ex_analysis2.html')
+
+@app.route('/model_fits')
+def model_fits():
+  return render_template('model_fits.html')
+
+
+
+#This was my page to plot
 @app.route('/plotpage', methods=['POST'])
 def plotpage():
     tickStr=request.form['chosen_word']
