@@ -1,30 +1,149 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Skeleton application demoing Heroku and Flask integration.">
-    <meta name="author" content="@gotoariel">
-    <!-- <link rel="icon" href="favicon.ico"> -->
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+}
+</style>
+<body>
 
-    <title>Wilkommen, bienvenue, and welcome to Heroku!</title>
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-theme-l1">Logo</a>
+    <a href="model_fits" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Model Fits</a>
+    <a href="main_graph" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Main Graph</a>
+    <a href="/about" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About this project</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">My Contact Info</a>
+    <a href="/resume" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Resume</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Partners</a>
+  </div>
+</div>
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-left">
-          <h2>About</h2>
-          <p><a href="/">Home</a></p>
-        </div>
-      </div>
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <!-- each of these pages will show some sample analyses that I think are cool -->
+  <h4 class="w3-bar-item"><b>Menu</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black" href="/ex_analysis1">Example Analysis 1</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="/ex_analysis2">Example Analysis 2</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="/ex_analysis3">Example Analysis 3</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">About me</h1>
+      <p>Hello! My name is David Smith. A little bit about myself. 
+      I grew up in Byron Center Michigan and went to Michigan state University to get my Bachelor’s in psychology.
+       There, I worked with Dr. Fenn studying the relationship between sleep and memory.
+        From there, I went to the University of Maine where I received my Ph.D. in 2020 in cognitive psychology.
+         At the University of Maine, I worked with Dr. Ell in a lab studying how people learn and represent categories.
+          During my graduate career, 
+          I conducted three independent studies on the effect that testing has on learning in various memory systems.
+           Currently, I am taking part in the Data Incubator Data Science Fellowship and am looking a for a career 
+           in data science. </p>
     </div>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </body>
+    <div class="w3-third w3-container">
+      <p class="w3-padding-large w3-padding-64 w3-center"><img src="/static/me.jpg" width="290" height="420"></p>
+    </div>
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">About this  project</h1>
+      <p>This project is multiple things. 
+       <br> First, it is an analysis of social media, specifically using the social media site Reddit.com.
+        I have scraped over a million comments from Reddit.com, grouped them based on things like their political or religious affiliation,
+         used natural language processing to conduct sentiment analyses (basically grouped them as positive, negative, or neutral,
+          and looked at how different comments do in various subreddits based on these factors. You can see some example analyses in the graphs on the left.
+           <br> Second, I have taken these comments, the groupings I have made, and created a model to predict the comment score. 
+           You can see more in the Model Fits tab at the top of the page. <br> Third, I have created a functional graph where you can find how well different words or 
+           phrases do on Reddit.com. You can see more about that in the Main graph tab at the top of the page. </p>
+    </div>
+
+  </div>
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Contact Information</h1>
+      <p>If you have any question please feel free to contact me at dsmit1728@gmail.com</p>
+    </div>
+    <div class="w3-third w3-container">
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a class="w3-button w3-black" href="#">1</a>
+      <a class="w3-button w3-hover-black" href="#">2</a>
+      <a class="w3-button w3-hover-black" href="#">3</a>
+      <a class="w3-button w3-hover-black" href="#">4</a>
+      <a class="w3-button w3-hover-black" href="#">5</a>
+      <a class="w3-button w3-hover-black" href="#">»</a>
+    </div>
+  </div>
+
+  <footer id="myFooter">
+    <div class="w3-container w3-theme-l2 w3-padding-32">
+      <h4>Footer</h4>
+    </div>
+
+    <div class="w3-container w3-theme-l1">
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    </div>
+  </footer>
+
+<!-- END MAIN -->
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+</body>
 </html>

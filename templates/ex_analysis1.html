@@ -25,8 +25,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
     <a href="#" class="w3-bar-item w3-button w3-theme-l1">Logo</a>
     <a href="/model_fits" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Model Fits</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Name for the app use thing</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Me</a>
+    <a href="/main_graph" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Main Graph</a>
+    <a href="/about" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About this project</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">My Contact Info</a>
     <a href="/resume" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Resume</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Partners</a>
@@ -42,7 +42,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
   <h4 class="w3-bar-item"><b>Menu</b></h4>
   <a class="w3-bar-item w3-button w3-hover-black" href="/ex_analysis1">Example Analysis 1</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="/ex_analysis2">Example Analysis 2</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="#">Analysis</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="/ex_analysis3">Example Analysis 3</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
 </nav>
@@ -55,8 +55,11 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
   <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Capstone Project</h1>
-      <p>What this project is.</p>
+      <h1 class="w3-text-teal">Distribution of Scores</h1>
+      <p>Below is a histogram with the comment scores of 1.1 million comments
+ As you can almost see, the vast majority of the comments are right around a score of 0 or 1.
+      </p>
+    <img src="/static/hist_all.png">
     </div>
     <div class="w3-third w3-container">
       <p class="w3-border w3-padding-large w3-padding-32 w3-center">Replace with generic image</p>
@@ -66,9 +69,10 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
   <div class="w3-row">
     <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Heading</h1>
-      <p>ex analysis 1sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>Below is a histogram of the bottom 99% of the comment score data.
+     As you can see the range of scores is from -1000 to 2000.
+      </p>
+    <img src="/static/hist_99.png">
     </div>
     <div class="w3-third w3-container">
       <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
@@ -78,9 +82,11 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
   <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Heading</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+      <p>Below the top 5% of the comment scores and the bottom 1% scores are removed
+      This makes the distribution of scores much clearer.
+      Most scores are right at 1 or 0, with the vast majority below 50.</p>
+    <img src="/static/hist_95_cut_low.png">
     </div>
     <div class="w3-third w3-container">
       <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>

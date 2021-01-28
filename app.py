@@ -27,7 +27,7 @@ from bokeh.layouts import row, column, widgetbox
 from bokeh.plotting import figure, show, output_file, ColumnDataSource
 from bokeh.models.widgets import Select
 from bokeh.io import curdoc, show
-
+from bokeh.resources import CDN
 import pandas as pd
 from bokeh.layouts import row
 from bokeh.io import output_file, show
@@ -103,18 +103,27 @@ with open('movie_data.csv', "wb") as f :
 
 
 #This gets the dataset
-def fetch(enter_text) :
+def fetch(enter_text, subreddit):
 
+    #enter_text = 'magic'
     #df = pd.read_csv('C:/Users/Pablo/Documents/Data Incubator/Reddit/New/Test_App/Redd_Test_App\comments_sent_text.csv')
     #df = pd.read_csv('comments_sent_text.csv')
     
    # url = 'https://drive.google.com/file/d/1pAaMsB8Ei1kmbh3ogqyESIVCztkxeORL/view?usp=sharing'
 #https://github.com/davidsmith1993/Redd_Test_App//main/comments_sent_text.csv
     #df = pd.read_csv(url)
+    
+    #subreddit = 'science'
+    #this is what I will be using I think
     df = pd.read_csv('https://www.dropbox.com/s/e0jw65of362fazs/comments_sent_text.csv?dl=1')
 
     df_sample = df.sample(n = 50000)
-
+    
+    if subreddit == 'All':
+        df_sample = df_sample
+    else:
+        df_sample = df_sample.loc[df_sample['subreddit'] == subreddit]
+    
     #enter_text = 'magic'
     df_sample['entered_text'] = df_sample['body'].str.contains(enter_text, case = False)
 
@@ -139,7 +148,7 @@ def fetch(enter_text) :
 
 
 
-def make_figure(df_sample, dfenteredlong):
+def make_figure(df_sample, dfenteredlong, enter_text):
     
     
     
@@ -153,13 +162,13 @@ def make_figure(df_sample, dfenteredlong):
 
     sentiment = ['negative', 'neutral', 'positive']
 
-    groups = dfenteredlong['group'].unique().tolist()
+    groups = [enter_text, 'Average Reddit Score']
     data = {'groups' : groups,
             'negative'   : g.negative.to_list(),
             'neutral'   : g.neutral.to_list(),
             'positive'   : g.positive.to_list()}
     source = ColumnDataSource(data)
-    p = figure(x_range=groups, y_range=(-10, 100), title="Title to add",
+    p = figure(x_range=groups, y_range=(-10, 100), title="Average comment score for" + enter_text,
                toolbar_location=None,  tooltips="@groups $name: @$name")
 
     p.vbar(x=dodge('groups', -0.25, range=p.x_range), top='negative', width=0.2, source=source,
@@ -173,7 +182,7 @@ def make_figure(df_sample, dfenteredlong):
     p.xgrid.grid_line_color = None
     p.legend.location = "top_left"
     p.legend.orientation = "horizontal"
-   # show(p)
+    #show(p)
 
 
 
@@ -182,7 +191,7 @@ def make_figure(df_sample, dfenteredlong):
 
 
 
-    output_file('templates/plot.html')
+    #output_file('templates/plot.html')
     save(p)
     script, div=components(p)
     
@@ -200,7 +209,9 @@ app.vars = {}
 @app.route('/')
 def index():
   return render_template('index.html')
-
+@app.route('/about')
+def about():
+  return render_template('about.html')
 
 @app.route('/resume')
 def resume():
@@ -216,23 +227,53 @@ def ex_analysis1():
 def ex_analysis2():
   return render_template('ex_analysis2.html')
 
+
+@app.route('/ex_analysis3')
+def ex_analysis3():
+  return render_template('ex_analysis3.html')
+
 @app.route('/model_fits')
 def model_fits():
   return render_template('model_fits.html')
 
+"""
+@app.route('/main_graph')
+def main_graph():
+  #tickStr=request.form['chosen_word']
+ # app.vars['ticker']=tickStr.upper() 
+ # data, data2 =fetch(app.vars['ticker'])
+  #script,div=make_figure(data, data2)
+  
+  
+  return render_template('main_graph.html')
+  #return render_template('main_graph.html, script=script, div=div')
+    
+"""
+
 
 
 #This was my page to plot
-@app.route('/plotpage', methods=['POST'])
-def plotpage():
-    tickStr=request.form['chosen_word']
+@app.route('/main_graph', methods=['POST', 'GET'])
+def main_graph():
+    if request.method == 'POST':
+        #subreddit = request.form['subreddit']
+        form_data = request.form
+        subreddit = form_data.get('chosen_reddit')
+        
+        tickStr = form_data.get('chosen_word')
+        #tickStr=request.form['chosen_word']
+        
+        app.vars['ticker']=tickStr
+        app.vars['chosen_reddit']=subreddit
+        #app.vars['subreddit'] = request.form['subreddit']
+        #data, data2 =fetch('magic')
+        data, data2 =fetch(app.vars['ticker'], app.vars['chosen_reddit'])
+        script,div=make_figure(data, data2, app.vars['ticker'])
     
-    app.vars['ticker']=tickStr.upper()
-    data, data2 =fetch(app.vars['ticker'])
-    script,div=make_figure(data, data2)
-    return render_template('plot.html', script=script, div=div)
+        return render_template('main_graph.html', script=script, div=div)
 
-
+    elif request.method == 'GET':
+        return render_template('main_graph.html')
 
 if __name__ == '__main__':
     app.run(port=33507)

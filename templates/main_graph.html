@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js" crossorigin="anonymous"></script>
+
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 .w3-sidebar {
@@ -24,9 +26,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
   <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
     <a href="#" class="w3-bar-item w3-button w3-theme-l1">Logo</a>
-    <a href="model_fits" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Model Fits</a>
-    <a href="main_graph" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Main Graph</a>
-    <a href="/index" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About this project</a>
+    <a href="/model_fits" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Model Fits</a>
+    <a href="/main_graph" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Main Graph</a>
+    <a href="/about" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About this project</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">My Contact Info</a>
     <a href="/resume" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Resume</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Partners</a>
@@ -55,8 +57,43 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
   <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Capstone Project</h1>
-      <p>What this project is.</p>
+      <h1 class="w3-text-teal">Name of functional graph</h1>
+      
+      
+ <body>
+    <p>What this is</p>
+    <form id='subreddit' action="/main_graph" method="POST">
+        <select id="subreddit" name="chosen_reddit">
+            <option value="All">All</option>
+            <option value="politics">politics</option>
+            <option value="gaming">gaming</option>
+            <option value="funny">funny</option>
+            <option value="aww">aww</option>
+            <option value="science">science</option>
+            <option value="news">news</option>
+            <option value="worldnews">worldnews</option>
+            <option value="christianity">christianity</option>
+            <option value="islam">islam</option>
+            <option value="atheism">atheism</option>
+            <option value="conservative">conservative</option>
+            <option value="latestagecapitalism">latestagecapitalism</option>
+            <option value="libertarian">libertarian</option>
+                  
+            
+        </select>
+        <p>
+            Enter Word: <input type='text' value="idk" name='chosen_word'>
+        </p>
+        <input type="submit" value="Plot">
+    </form>
+        {{ div | safe }}
+        {{ script | safe }}
+    </body>
+      
+      
+      
+      
+
     </div>
     <div class="w3-third w3-container">
       <p class="w3-border w3-padding-large w3-padding-32 w3-center">Replace with generic image</p>
@@ -67,8 +104,10 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
   <div class="w3-row">
     <div class="w3-twothird w3-container">
       <h1 class="w3-text-teal">Heading</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
+      
+      <p>ex analysis 2222 amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
         dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <img src="/static/religion_conservative.png">   
     </div>
     <div class="w3-third w3-container">
       <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
@@ -81,6 +120,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
       <h1 class="w3-text-teal">Heading</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
         dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <img src="/static/religion_christianity.png">   
     </div>
     <div class="w3-third w3-container">
       <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
@@ -137,6 +177,7 @@ function w3_close() {
   overlayBg.style.display = "none";
 }
 </script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
