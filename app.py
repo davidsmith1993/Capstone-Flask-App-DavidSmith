@@ -168,7 +168,7 @@ def make_figure(df_sample, dfenteredlong, enter_text):
             'neutral'   : g.neutral.to_list(),
             'positive'   : g.positive.to_list()}
     source = ColumnDataSource(data)
-    p = figure(x_range=groups, y_range=(-10, 100), title="Average comment score for " + enter_text,
+    p = figure(x_range=groups,  title="Average comment score for " + enter_text,
                toolbar_location=None,  tooltips="@groups $name: @$name")
 
     p.vbar(x=dodge('groups', -0.25, range=p.x_range), top='negative', width=0.2, source=source,
