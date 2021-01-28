@@ -57,11 +57,14 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
   <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Name of functional graph</h1>
+      <h1 class="w3-text-teal">Explore</h1>
       
-      
+     <p>The goal of this project is to learn about how different communities react to different words and phrases.
+     Here, you can select a subreddit, or subcommunity from the social media site Reddit.com and enter a word or phrase.
+     Then, when you press submit (and wait a short bit), you will see a graph of the average score for comments 
+     that contain the entered word or phrase. You will also see how the score is affected by the comment being positive or negative!</p> 
  <body>
-    <p>What this is</p>
+    <p>Choose the Subreddit or Subcommunity</p>
     <form id='subreddit' action="/main_graph" method="POST">
         <select id="subreddit" name="chosen_reddit">
             <option value="All">All</option>
@@ -81,8 +84,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
                   
             
         </select>
+        <p> Enter a word: </p>
         <p>
-            Enter Word: <input type='text' value="idk" name='chosen_word'>
+           <input type='text' value="idk" name='chosen_word'>
         </p>
         <input type="submit" value="Plot">
     </form>
@@ -103,10 +107,10 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
   <div class="w3-row">
     <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Heading</h1>
+      <h1 class="w3-text-teal">Conclusions</h1>
       
-      <p>ex analysis 2222 amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>Try and entering different words and phrases in various subreddits. Do the results surpise you?
+      </p>
     <img src="/static/religion_conservative.png">   
     </div>
     <div class="w3-third w3-container">
@@ -117,10 +121,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
   <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Heading</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <img src="/static/religion_christianity.png">   
+ 
     </div>
     <div class="w3-third w3-container">
       <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
