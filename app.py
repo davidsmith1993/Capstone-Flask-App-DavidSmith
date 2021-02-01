@@ -105,7 +105,7 @@ with open('movie_data.csv', "wb") as f :
 #This gets the dataset
 def fetch(enter_text, subreddit):
 
-    #enter_text = 'magic'
+    #enter_text = 'All'
     #df = pd.read_csv('C:/Users/Pablo/Documents/Data Incubator/Reddit/New/Test_App/Redd_Test_App\comments_sent_text.csv')
     #df = pd.read_csv('comments_sent_text.csv')
     
@@ -115,10 +115,14 @@ def fetch(enter_text, subreddit):
     
     #subreddit = 'science'
     #this is what I will be using I think
-    df = pd.read_csv('https://www.dropbox.com/s/e0jw65of362fazs/comments_sent_text.csv?dl=1')
+    #df = pd.read_csv('https://www.dropbox.com/s/e0jw65of362fazs/comments_sent_text.csv?dl=1')
 
-    df_sample = df.sample(n = 50000)
+    #df_sample = df.sample(n = 150000)
+    #df = pd.read_csv('C:/Users\Pablo\Documents\Data Incubator/Reddit/New/Data/df_all_cleaned_dropped_95.csv')
+
     
+    #df_sample.to_csv(r'C:\Users\Pablo\Documents\Data Incubator\Reddit\New\Test_App\Redd_Test_App\comments_sent_text_small.csv') 
+    df_sample =  pd.read_csv('comments_sent_text_small.csv')
     if subreddit == 'All':
         df_sample = df_sample
     else:
@@ -162,7 +166,7 @@ def make_figure(df_sample, dfenteredlong, enter_text):
 
     sentiment = ['negative', 'neutral', 'positive']
 
-    groups = [enter_text, 'Average Reddit Score']
+    groups = [enter_text, 'Average Subreddit Comment Score']
     data = {'groups' : groups,
             'negative'   : g.negative.to_list(),
             'neutral'   : g.neutral.to_list(),
