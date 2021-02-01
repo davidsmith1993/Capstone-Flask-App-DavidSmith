@@ -176,12 +176,15 @@ def make_figure(df_sample, dfenteredlong, enter_text):
                toolbar_location=None,  tooltips="@groups $name: @$name")
 
     p.vbar(x=dodge('groups', -0.25, range=p.x_range), top='negative', width=0.2, source=source,
-           color="#c9d9d3", legend_label="negative", name = "negative")
+           color="#696969", legend_label="negative", name = "negative")
     p.vbar(x=dodge('groups', 0, range=p.x_range), top='neutral', width=0.2, source=source,
-           color="#718dbf", legend_label="neutral", name = "neutral")
+           color="#FFFF00", legend_label="neutral", name = "neutral")
     p.vbar(x=dodge('groups', 0.25, range=p.x_range), top='positive', width=0.2, source=source,
-           color="#e84d60", legend_label="positive", name = "positive")
-
+           color="#add8e6", legend_label="positive", name = "positive")
+    p.title.text_font_size = "20px"
+    p.xaxis.major_label_text_font_size = "20px"
+    p.yaxis.axis_label = 'Comment Score'
+    p.yaxis.axis_label_text_font_size = "20pt"
     p.x_range.range_padding = 0.1
     p.xgrid.grid_line_color = None
     p.legend.location = "top_left"
