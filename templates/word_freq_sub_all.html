@@ -7,8 +7,6 @@
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js" crossorigin="anonymous"></script>
-
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 .w3-sidebar {
@@ -57,47 +55,12 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
   <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Explore</h1>
-      
-     <p>The goal of this project is to learn about how different communities react to different words and phrases.
-     Here, you can select a subreddit, or subcommunity from the social media site Reddit.com and enter a word or phrase.
-     Then, when you press submit (and wait a short bit), you will see a graph of the average score for comments 
-     that contain the entered word or phrase. You will also see how the score is affected by the comment being positive or negative!</p> 
- <body>
-    <p>Choose the Subreddit or Subcommunity</p>
-    <form id='subreddit' action="/main_graph" method="POST">
-        <select id="subreddit" name="chosen_reddit">
-            <option value="All">All</option>
-            <option value="politics">politics</option>
-            <option value="gaming">gaming</option>
-            <option value="funny">funny</option>
-            <option value="aww">aww</option>
-            <option value="science">science</option>
-            <option value="news">news</option>
-            <option value="worldnews">worldnews</option>
-            <option value="christianity">christianity</option>
-            <option value="islam">islam</option>
-            <option value="atheism">atheism</option>
-            <option value="conservative">conservative</option>
-            <option value="latestagecapitalism">latestagecapitalism</option>
-            <option value="libertarian">libertarian</option>
-                  
-            
-        </select>
-        <p> Enter a word: </p>
-        <p>
-           <input type='text' value="Enter Word Here" name='chosen_word'>
-        </p>
-        <input type="submit" value="Plot">
-    </form>
-        {{ div | safe }}
-        {{ script | safe }}
-    </body>
-      
-      
-      
-      
-
+      <h1 class="w3-text-teal">Political</h1>
+      <p>...</p>
+      <img src="/static/word_freq_politics.png", width="400" height="400">
+      <img src="/static/word_freq_conservative.png", width="400" height="400">
+      <img src="/static/word_freq_latestage.png", width="400" height="400">
+      <img src="/static/word_freq_libertarian.png", width="400" height="400">
     </div>
     <div class="w3-third w3-container">
 
@@ -106,11 +69,11 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
   <div class="w3-row">
     <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Conclusions</h1>
-      
-      <p>Try and entering different words and phrases in various subreddits. Do the results surpise you?
-      </p>
- 
+      <h1 class="w3-text-teal">Religious</h1>
+      <p>...</p>
+      <img src="/static/word_freq_atheism.png", width="400" height="400">
+      <img src="/static/word_freq_christianity.png", width="400" height="400">
+      <img src="/static/word_freq_islam.png", width="400" height="400">
     </div>
     <div class="w3-third w3-container">
 
@@ -119,14 +82,30 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
   <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
- 
+      <h1 class="w3-text-teal">News</h1>
+      <p>...</p>
+      <img src="/static/word_freq_worldnews.png", width="400" height="400">
+      <img src="/static/word_freq_news.png", width="400" height="400">
+      <img src="/static/word_freq_europe.png", width="400" height="400">
     </div>
     <div class="w3-third w3-container">
 
     </div>
   </div>
 
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Other</h1>
+      <p>...</p>
+      <img src="/static/word_freq_askmen.png", width="400" height="400">
+      <img src="/static/word_freq_askwomen.png", width="400" height="400">
+      <img src="/static/word_freq_game.png", width="400" height="400">
+      <img src="/static/word_freq_sports.png", width="400" height="400">
+    </div>
+    <div class="w3-third w3-container">
 
+    </div>
+  </div>
 
 <!-- END MAIN -->
 </div>
@@ -155,7 +134,6 @@ function w3_close() {
   overlayBg.style.display = "none";
 }
 </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </body>
 </html>

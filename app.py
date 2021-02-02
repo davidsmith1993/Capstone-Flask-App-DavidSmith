@@ -243,6 +243,24 @@ def ex_analysis3():
 def model_fits():
   return render_template('model_fits.html')
 
+
+@app.route('/word_freq')
+def word_freq():
+  return render_template('word_freq.html')
+
+@app.route('/word_freq_sub_all')
+def word_freq_sub_all():
+  return render_template('word_freq_sub_all.html')
+
+@app.route('/word_freq_sub_top')
+def word_freq_sub_top():
+  return render_template('word_freq_sub_top.html')
+
+@app.route('/word_freq_sub_bottom')
+def word_freq_sub_bottom():
+  return render_template('word_freq_sub_bottom.html')
+
+
 """
 @app.route('/main_graph')
 def main_graph():
