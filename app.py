@@ -23,6 +23,7 @@ import alpha_vantage
 import requests
 
 
+import pickle##dump the model into a file
 from bokeh.layouts import row, column, widgetbox
 from bokeh.plotting import figure, show, output_file, ColumnDataSource
 from bokeh.models.widgets import Select
@@ -42,6 +43,12 @@ from bokeh.io import curdoc
 from alpha_vantage.timeseries import TimeSeries
 from bokeh.embed import components 
 from bokeh.io import output_file, show
+
+import pandas as pd
+import nltk
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+nltk.download('vader_lexicon')
+nltk.download('punkt')
 
 
 """
@@ -207,6 +214,74 @@ def make_figure(df_sample, dfenteredlong, enter_text):
 
 
 
+def model_it(comment, time_h, time_d, gild, par_score):
+    
+   
+    #This opens
+    ##loading the model from the saved file
+    with open('model.bin', 'rb') as f_in:
+        model = pickle.load(f_in)    
+    
+    
+
+
+    
+    """Then we test it with defined features"""
+
+    #comment = 'I have a large dog and I love him'
+    
+    body_len = len(comment)
+    #subreddit = 'askreddit'
+    #time_h = 1
+    #time_d = 2
+    #gild = 0
+    #par_score = 500
+    
+    
+    #Our goal here is to conduct sentiment analyses of the comments
+    sid = SentimentIntensityAnalyzer()
+    
+    
+    scores = sid.polarity_scores(comment)
+    sentiment = []
+    
+    
+    if scores["compound"] >= 0.05:
+        sentiment = 'positive'
+        s = [0, 0, 1]
+        
+    elif scores["compound"] <= -0.05:
+        sentiment = 'negative'
+        s = [1, 0 ,0 ]
+    else:
+        sentiment = 'neutral'
+        s = [0 , 1 ,0 ]
+
+
+
+
+
+
+    c_test = [[par_score, body_len, gild, time_d, time_h] + s]
+
+    c_pred= model.predict(c_test)
+    return c_pred
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app = Flask(__name__)
 
 app.vars = {}
@@ -299,6 +374,30 @@ def main_graph():
 
     elif request.method == 'GET':
         return render_template('main_graph.html')
+    
+    
+    
+    
+    
+ 
+    
+    
+#This was my page to plot
+@app.route('/deployed', methods=['POST', 'GET'])
+def deployed():
+    if request.method == 'POST':
+        form_data = request.form
+        comment = form_data.get('comment')
+        time_h = form_data.get('hour')
+        time_d = form_data.get('day')
+        gild = form_data.get('gilded')
+        par_score= form_data.get('par_score')
+        
+        prediction=model_it(comment, time_h, time_d, gild, par_score)
+        return render_template('deployed.html', prediction = prediction)
+
+    elif request.method == 'GET':
+        return render_template('deployed.html')    
 
 if __name__ == '__main__':
     app.run(port=33507)
