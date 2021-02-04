@@ -8,3 +8,5 @@ jinja2
 pip
 simplejson
 alpha_vantage
+pickle
+nltk
