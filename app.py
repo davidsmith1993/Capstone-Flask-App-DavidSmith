@@ -179,7 +179,7 @@ def make_figure(df_sample, dfenteredlong, enter_text):
             'neutral'   : g.neutral.to_list(),
             'positive'   : g.positive.to_list()}
     source = ColumnDataSource(data)
-    p = figure(x_range=groups,  title="Average comment score for " + enter_text,
+    p = figure(x_range=groups,  title="Average comment score for comments that contain " + enter_text,
                toolbar_location=None,  tooltips="@groups $name: @$name")
 
     p.vbar(x=dodge('groups', -0.25, range=p.x_range), top='negative', width=0.2, source=source,
@@ -189,8 +189,8 @@ def make_figure(df_sample, dfenteredlong, enter_text):
     p.vbar(x=dodge('groups', 0.25, range=p.x_range), top='positive', width=0.2, source=source,
            color="#add8e6", legend_label="positive", name = "positive")
     p.title.text_font_size = "20px"
-    p.xaxis.major_label_text_font_size = "20px"
-    p.yaxis.axis_label = 'Comment Score'
+    p.xaxis.major_label_text_font_size = "18px"
+    p.yaxis.axis_label = 'Average Comment Score'
     p.yaxis.axis_label_text_font_size = "20pt"
     p.x_range.range_padding = 0.1
     p.xgrid.grid_line_color = None
@@ -240,8 +240,7 @@ def model_it(comment, time_h, time_d, gild, par_score):
     
     #Our goal here is to conduct sentiment analyses of the comments
     sid = SentimentIntensityAnalyzer()
-    
-    
+
     scores = sid.polarity_scores(comment)
     sentiment = []
     

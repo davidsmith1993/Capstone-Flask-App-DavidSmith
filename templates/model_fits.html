@@ -57,8 +57,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
   <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
       <h1 class="w3-text-teal">Model Fits</h1>
-      <p>This model includes a large number of features and produces a complicated decision tree</p>
-      <img src="/static/alltree.png", width="400" height="400">
+      <p>This model (random forest) includes a large number of features and produces a complicated decision tree. There are too many features
+      for this tree to be of any real use.</p>
+      <img src="/static/alltree.png", width="375" height="375">
     </div>
     <div class="w3-third w3-container">
 
@@ -70,7 +71,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
       <h1 class="w3-text-teal">Features</h1>
       <p>There are many features that went into this model. These include: The parent comment score, if the comment was gilded,
       the subreddit the comment was posted in, the sentiment of the comment, if the comment was religious, if the comment was political,
-      and the lenght of the comment. </p>
+      and the length of the comment. </p>
     <img src="/static/model_pred.png">
     </div>
     <div class="w3-third w3-container">
@@ -81,7 +82,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
   <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
       <h1 class="w3-text-teal">Result</h1>
-      <p>Currently the model predicts with an R squared value of .3002</p>
+      <p>Currently the model predicts with an R squared value of .318. Below are the test scores and the scores the model has predicted.
+      Note the model does a ppor job predicting scores below 0 and above 60.</p>
          <img src="/static/test_fig.png">
     </div>
     <div class="w3-third w3-container">
@@ -89,27 +91,6 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     </div>
   </div>
 
-  <!-- Pagination -->
-  <div class="w3-center w3-padding-32">
-    <div class="w3-bar">
-      <a class="w3-button w3-black" href="#">1</a>
-      <a class="w3-button w3-hover-black" href="#">2</a>
-      <a class="w3-button w3-hover-black" href="#">3</a>
-      <a class="w3-button w3-hover-black" href="#">4</a>
-      <a class="w3-button w3-hover-black" href="#">5</a>
-      <a class="w3-button w3-hover-black" href="#">»</a>
-    </div>
-  </div>
-
-  <footer id="myFooter">
-    <div class="w3-container w3-theme-l2 w3-padding-32">
-      <h4>Footer</h4>
-    </div>
-
-    <div class="w3-container w3-theme-l1">
-      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-    </div>
-  </footer>
 
 <!-- END MAIN -->
 </div>

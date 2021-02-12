@@ -87,7 +87,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
            <input type='number' value="Enter hour" name='hour' min="1" max="24">
         </p>
                 
-        <p> Enter day (Monday = 1, Tuesday = 2): </p>
+        <p> Enter day (Monday = 1, Tuesday = 2, etc.): </p>
         <p>
            <input type='number' value="Enter hour" name='day' min="1" max="7">
         </p>
@@ -96,7 +96,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
         
         <input type="submit" value="Predict">
     </form>
-        {{ prediction }}
+       The predicted comment score is: {{ prediction }}
     </body>
       
 
@@ -112,7 +112,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     <div class="w3-twothird w3-container">
       <h1 class="w3-text-teal">Conclusions</h1>
       
-      <p>Try and entering different comments. Do the results surpise you?
+      <p>Try entering different comments. How does your comment score
+      change based on the day of week it is posted or how well the parent comment scored.
       </p>
  
     </div>
