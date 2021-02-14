@@ -335,6 +335,11 @@ def word_freq_sub_bottom():
   return render_template('word_freq_sub_bottom.html')
 
 
+@app.route('/hidden')
+def hidden():
+  return render_template('hidden.html')
+
+
 """
 @app.route('/main_graph')
 def main_graph():
