@@ -11,4 +11,3 @@ alpha_vantage
 nltk
 sklearn
 textstat
-statisticts
