@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js" crossorigin="anonymous"></script>
+
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 .w3-sidebar {
@@ -56,12 +58,50 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
   <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Political</h1>
-      <p>Most common words in bottom posts on political subreddits</p>
-      <img src="/static/bottom_freq_Politics.png", width="400" height="400">
-      <img src="/static/bottom_freq_conservative.png", width="400" height="400">
-      <img src="/static/bottom_freq_latestagecapitalism.png", width="400" height="400">
-      <img src="/static/bottom_freq_libertarian.png", width="400" height="400">
+      <h1 class="w3-text-teal">Predict Comment Score</h1>
+      
+     <p></p> 
+ <body>
+    <p>Is your comment gilded?</p>
+    <form id='subreddit' action="/deployed" method="POST">
+        <select id="gilded" name="gilded">
+            <option value=1>Yes</option>
+            <option value=0>No</option>
+        </select>
+        
+        
+        
+        
+        <p> Enter a comment: </p>
+        <p>
+           <textarea type='text' value="Enter Comment here" name='comment'>
+        </p>
+
+        <p> Enter a comment score for the parent comment: </p>
+        <p>
+           <input type='number' value="Enter parent comment score" name='par_score'>
+        </p>
+                
+         <p> Enter the hour of day (24 hour time): </p>
+        <p>
+           <input type='number' value="Enter hour" name='hour' min="1" max="24">
+        </p>
+                
+        <p> Enter day (Monday = 1, Tuesday = 2, etc.): </p>
+        <p>
+           <input type='number' value="Enter hour" name='day' min="1" max="7">
+        </p>
+        
+        
+        
+        <input type="submit" value="Predict">
+    </form>
+       The predicted comment score is: {{ prediction }}
+    </body>
+      
+
+      
+
     </div>
     <div class="w3-third w3-container">
 
@@ -70,11 +110,12 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
   <div class="w3-row">
     <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Religious</h1>
-      <p>Most common words in bottom posts on religious subreddits</p>
-      <img src="/static/bottom_freq_atheism.png", width="400" height="400">
-      <img src="/static/bottom_freq_christianity.png", width="400" height="400">
-      <img src="/static/bottom_freq_islam.png", width="400" height="400">
+      <h1 class="w3-text-teal">Conclusions</h1>
+      
+      <p>Try entering different comments. How does your comment score
+      change based on the day of week it is posted or how well the parent comment scored.
+      </p>
+ 
     </div>
     <div class="w3-third w3-container">
 
@@ -83,30 +124,14 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
   <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">News</h1>
-      <p>Most common words in bottom posts on news subreddits</p>
-      <img src="/static/bottom_freq_worldnews.png", width="400" height="400">
-      <img src="/static/bottom_freq_news.png", width="400" height="400">
-      <img src="/static/bottom_freq_europe.png", width="400" height="400">
+ 
     </div>
     <div class="w3-third w3-container">
 
     </div>
   </div>
 
-  <div class="w3-row w3-padding-64">
-    <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Other</h1>
-      <p></p>
-      <img src="/static/bottom_freq_askmen.png", width="400" height="400">
-      <img src="/static/bottom_freq_askwomen.png", width="400" height="400">
-      <img src="/static/bottom_freq_gaming.png", width="400" height="400">
-      <img src="/static/bottom_freq_sports.png", width="400" height="400">
-    </div>
-    <div class="w3-third w3-container">
 
-    </div>
-  </div>
 
 <!-- END MAIN -->
 </div>
@@ -135,6 +160,7 @@ function w3_close() {
   overlayBg.style.display = "none";
 }
 </script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
