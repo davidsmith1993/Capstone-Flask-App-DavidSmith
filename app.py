@@ -21,8 +21,8 @@ from flask import Flask, render_template, request, redirect
 #"""
 import alpha_vantage
 import requests
-
-
+import statistics
+import textstat
 import pickle##dump the model into a file
 from bokeh.layouts import row, column, widgetbox
 from bokeh.plotting import figure, show, output_file, ColumnDataSource
@@ -256,12 +256,12 @@ def model_it(comment, time_h, time_d, gild, par_score):
         sentiment = 'neutral'
         s = [0 , 1 ,0 ]
 
+    
+    read = textstat.text_standard(comment, float_output=True)
+    upper = statistics.mean(ch.isupper() for ch in comment if not ch.isspace())
+    q_mark = len(comment) - len(comment.rstrip('?'))
 
-
-
-
-
-    c_test = [[par_score, body_len, gild, time_d, time_h] + s]
+    c_test = [[par_score, body_len, gild, time_d, time_h, read, upper, q_mark] + s]
 
     c_pred= model.predict(c_test)
     return c_pred
