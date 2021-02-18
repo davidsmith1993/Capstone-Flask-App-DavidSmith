@@ -190,7 +190,7 @@ def make_figure(df_sample, dfenteredlong, enter_text):
            color="#add8e6", legend_label="positive", name = "positive")
     p.title.text_font_size = "18px"
     p.xaxis.major_label_text_font_size = "18px"
-    p.yaxis.axis_label = 'Average Comment Score'
+    p.yaxis.axis_label = 'Average Comment Score (Upvotes - Downvotes)'
     p.yaxis.axis_label_text_font_size = "20pt"
     p.x_range.range_padding = 0.1
     p.xgrid.grid_line_color = None
