@@ -188,7 +188,7 @@ def make_figure(df_sample, dfenteredlong, enter_text):
            color="#FFFF00", legend_label="neutral", name = "neutral")
     p.vbar(x=dodge('groups', 0.25, range=p.x_range), top='positive', width=0.2, source=source,
            color="#add8e6", legend_label="positive", name = "positive")
-    p.title.text_font_size = "18px"
+    p.title.text_font_size = "20px"
     p.xaxis.major_label_text_font_size = "18px"
     p.yaxis.axis_label = 'Average Comment Score'
     p.yaxis.axis_label_text_font_size = "20pt"
